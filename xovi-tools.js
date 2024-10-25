@@ -1,11 +1,13 @@
 // ==UserScript==
-// @name         XOVI Tools
-// @namespace    http://tampermonkey.net/
-// @version      0.1
+// @name          XOVI Tools
+// @namespace     http://tampermonkey.net/
+// @version       0.2
+// @updateURL     https://github.com/thinze/xovi-tools/raw/refs/heads/master/xovi-tools.js
+// @downloadURL   https://github.com/thinze/xovi-tools/raw/refs/heads/master/xovi-tools.js
 // @description
-// @author       T.Hinze
-// @match        https://suite.xovi.net/onpage/*
-// @grant        none
+// @author        T.Hinze
+// @match         https://suite.xovi.net/onpage/*
+// @grant         none
 // ==/UserScript==
 
 (function() {
@@ -22,7 +24,8 @@
     if (css_id) {
       style.id = css_id;
     }
-    style.innerHTML = css;
+    var node = document.createTextNode(css);
+    style.appendChild(node);
     document.querySelector('head').appendChild(style);
   }
 
